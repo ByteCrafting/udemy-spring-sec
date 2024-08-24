@@ -6,7 +6,6 @@ import jakarta.persistence.GenerationType.IDENTITY
 import jakarta.persistence.Id
 import jakarta.persistence.Lob
 import jakarta.persistence.Table
-import org.apache.logging.log4j.util.Strings
 import org.apache.logging.log4j.util.Strings.EMPTY
 
 @Entity
