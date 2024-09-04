@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus.OK
 import org.springframework.http.ResponseEntity
+import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PatchMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -22,6 +23,7 @@ class AdminController(
     private val userRepository: UserRepository,
     private val userService: UserService,
 ) {
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/users")
     fun getAllUsers(page: Pageable): ResponseEntity<Page<User>> {
         return ResponseEntity<Page<User>>(

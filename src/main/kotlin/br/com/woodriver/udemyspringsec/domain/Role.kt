@@ -1,6 +1,6 @@
 package br.com.woodriver.udemyspringsec.domain
 
-import br.com.woodriver.udemyspringsec.domain.Roles.USER
+import br.com.woodriver.udemyspringsec.domain.Roles.ROLE_USER
 import jakarta.persistence.CascadeType
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
@@ -19,7 +19,7 @@ data class Role(
     @Column(name = "rol_id")
     val id: Int = 0,
     @Column(name = "rol_name")
-    val role: Roles = USER,
+    val role: Roles = ROLE_USER,
     @OneToMany(mappedBy = "role", fetch = EAGER, cascade = [CascadeType.MERGE])
     val users: Set<User> = hashSetOf()
 

@@ -1,6 +1,6 @@
 package br.com.woodriver.udemyspringsec.domain
 
-import br.com.woodriver.udemyspringsec.domain.Roles.USER
+import br.com.woodriver.udemyspringsec.domain.Roles.ROLE_USER
 import jakarta.persistence.CascadeType
 import jakarta.persistence.Entity
 import jakarta.persistence.FetchType.EAGER
@@ -33,7 +33,7 @@ data class User(
 
     @ManyToOne(fetch = EAGER, cascade = [CascadeType.MERGE])
     @JoinColumn(name = "rol_id", referencedColumnName = "rol_id")
-    var role: Role = Role(id = 1, role = USER),
+    var role: Role = Role(id = 1, role = ROLE_USER),
 ) : UserDetails {
     override fun getAuthorities(): MutableCollection<out GrantedAuthority> {
         return mutableListOf(GrantedAuthority { role.role.name })
